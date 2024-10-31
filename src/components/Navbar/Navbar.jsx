@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 
 export default function Navbar(){
     return(
-        <div className={'p-6 flex justify-between items-center border shadow-sm '}>
+        <div className={'p-6 flex justify-between items-center border shadow-sm  navbar'}>
             <img src={logo} alt={''}/>
             <div className={'flex  gap-4'}>
                 <Button sx={{fontSize:'0.75rem',backgroundColor: 'white',color:'black',fontWeight:'600',fontFamily: 'Poppins, sans-serif',width:111,height:35}} variant="contained">Dashboard</Button>
