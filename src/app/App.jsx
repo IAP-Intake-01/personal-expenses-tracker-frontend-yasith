@@ -1,6 +1,5 @@
 import './App.css'
 import Navbar from "../components/Navbar/Navbar.jsx";
-import SignUp from "../components/SignUp/SignUp.jsx";
 
 function App() {
 
