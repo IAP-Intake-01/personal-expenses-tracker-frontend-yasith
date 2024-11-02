@@ -3,11 +3,15 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 export default function CreateBudgetModel({closeModel}){
     const createBudget=()=>{
         closeModel();
     }
+    const [budgetName,setBudgetName]=useState('');
+    const [budgetAmount,setBudgetAmount]=useState('');
+
     return(
         <Box sx={{
             display: 'flex',
@@ -21,7 +25,7 @@ export default function CreateBudgetModel({closeModel}){
             // width: '100%',
             height: '100%',
             zIndex:1000,
-        }}>>
+        }}>
             <Paper elevation={10} sx={{ padding: 2, width: '420px', height:'auto', margin: '100px auto'}}>
                 <Box sx={{textAlign:'center' ,marginTop:'8px'}}>
                     <Avatar sx={{ margin: 'auto',backgroundColor:'#007DFC' }}>
@@ -38,6 +42,7 @@ export default function CreateBudgetModel({closeModel}){
                             id="outlined-required"
                             fullWidth
                             placeholder={'e.g Home Decor'}
+                            onChange={(e)=>setBudgetName(e.target.value)}
                         />
                     </Box>
                     <Box sx={{display:'flex' ,flexDirection:'column',gap:'3px'}}>
@@ -46,13 +51,22 @@ export default function CreateBudgetModel({closeModel}){
                             required
                             id="outlined-required"
                             fullWidth
+                            type={'number'}
                             placeholder={'e.g. 5000$'}
-
+                            onChange={(e)=>setBudgetAmount(e.target.value)}
                         />
                     </Box>
                 </Box>
 
-                <Button   variant="contained" fullWidth sx={{marginBottom:'14px',marginTop:'22px'}} onClick={createBudget}>Create Budget</Button>
+                {}
+                <Button
+                    variant="contained"
+                    fullWidth sx={{marginBottom:'14px',marginTop:'22px'}}
+                    onClick={createBudget}
+                    disabled={!(budgetName&&budgetAmount)}
+                >
+                    Create Budget
+                </Button>
                 {/*<Typography>*/}
                     {/*<Link href="#" to={''}>Forget password ?</Link>*/}
                 {/*</Typography>*/}
