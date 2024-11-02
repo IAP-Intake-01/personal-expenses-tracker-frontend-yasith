@@ -1,0 +1,10 @@
+.signUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 590px;
+    top: 120px;
+    z-index:1000;
+}
