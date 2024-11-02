@@ -8,7 +8,7 @@ export default function SignIn(){
     const [userPassword, setPassword] = useState('');
 
     return(
-        <div>
+        <div className={'signIn'}>
             <Paper  elevation={10} sx={{ padding: 2, width: '320px', height:'65vh', margin: '100px auto '}}>
                 <Box sx={{textAlign:'center'}}>
                     <Avatar sx={{ margin: 'auto',marginTop:2,backgroundColor:'#007DFC'}}>
