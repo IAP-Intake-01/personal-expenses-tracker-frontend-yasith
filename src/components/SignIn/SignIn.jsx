@@ -3,10 +3,18 @@ import {Avatar, Box, Checkbox, FormControlLabel, Link, Paper, TextField, Typogra
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Button from "@mui/material/Button";
 import {useState} from "react";
-export default function SignIn(){
+export default function SignIn({onSubmit,closeModel}){
     const [userEmail, setEmail] = useState('');
     const [userPassword, setPassword] = useState('');
 
+    const handleSubmit=()=>{
+        const newSignIn={
+            email:userEmail,
+            password:userPassword,
+        };
+        onSubmit(newSignIn);
+        closeModel();
+    }
     return(
         <div className={'signIn'}>
             <Paper  elevation={10} sx={{ padding: 2, width: '320px', height:'65vh', margin: '100px auto '}}>
@@ -37,7 +45,7 @@ export default function SignIn(){
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <FormControlLabel control={<Checkbox defaultChecked />} label="I accept the terms and conditions" />
-                <Button  variant="contained" fullWidth sx={{marginTop:'18px',backgroundColor:'#007DFC',marginBottom:'10px'}}>Sign In</Button>
+                <Button  variant="contained" fullWidth sx={{marginTop:'18px',backgroundColor:'#007DFC',marginBottom:'10px'}} onClick={handleSubmit}>Sign In</Button>
                 <Typography>
                     <Link href="">Forget password ?</Link>
                 </Typography>
