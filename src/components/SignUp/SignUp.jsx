@@ -4,13 +4,20 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {useState} from "react";
 import Button from "@mui/material/Button";
 
-export default function SignUp(){
+export default function SignUp({closeModel}){
     const [userName, setName] = useState('');
     const [userEmail, setEmail] = useState('');
     const [userPassword, setPassword] = useState('');
 
     return(
-        <div className={'signUp'}>
+        <div className={'signUp'}
+             onClick={(e)=>{
+                 if (e.target.classList.contains("signUp")) {
+                     closeModel();
+                 }
+             }}
+
+        >
             <Paper  elevation={10} sx={{ padding: 2, width: '320px', height:'65vh', margin: '100px auto '}}>
                 <Box sx={{textAlign:'center'}}>
                     <Avatar sx={{ margin: 'auto',marginTop:2,backgroundColor:'#007DFC'}}>

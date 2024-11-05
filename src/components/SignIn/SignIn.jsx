@@ -3,12 +3,18 @@ import {Avatar, Box, Checkbox, FormControlLabel, Link, Paper, TextField, Typogra
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Button from "@mui/material/Button";
 import {useState} from "react";
-export default function SignIn(){
+export default function SignIn({closeModel}){
     const [userEmail, setEmail] = useState('');
     const [userPassword, setPassword] = useState('');
 
     return(
-        <div className={'signIn'}>
+        <div className={'signIn'}
+             onClick={(e)=>{
+                 if (e.target.classList.contains("signIn")) {
+                     closeModel();
+                 }
+             }}
+        >
             <Paper  elevation={10} sx={{ padding: 2, width: '320px', height:'65vh', margin: '100px auto '}}>
                 <Box sx={{textAlign:'center'}}>
                     <Avatar sx={{ margin: 'auto',marginTop:2,backgroundColor:'#007DFC'}}>
