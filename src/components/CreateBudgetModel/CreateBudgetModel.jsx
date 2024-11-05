@@ -3,17 +3,27 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {FinancialContext} from "../Context/ExpencesTrackerContext.jsx";
 
 export default function CreateBudgetModel({closeModel}){
-    const createBudget=()=>{
-        closeModel();
-    }
+
     const [budgetName,setBudgetName]=useState('');
     const [budgetAmount,setBudgetAmount]=useState('');
+    const {createBudget}=useContext(FinancialContext);
+
+    const handelSubmit=()=>{
+        const newBudget={
+            name:budgetName,
+            amount:budgetAmount,
+        };
+        createBudget(newBudget)
+        closeModel();
+    }
 
     return(
-        <Box sx={{
+        <Box className={'model'}
+            sx={{
             display: 'flex',
             justifyContent: 'center', // Center horizontally
             alignItems: 'center', // Center vertically
@@ -25,7 +35,14 @@ export default function CreateBudgetModel({closeModel}){
             // width: '100%',
             height: '100%',
             zIndex:1000,
-        }}>
+        }}
+
+             onClick={(e)=>{
+                 if (e.target.classList.contains("model")) {
+                     closeModel();
+                 }
+             }}
+        >
             <Paper elevation={10} sx={{ padding: 2, width: '420px', height:'auto', margin: '100px auto'}}>
                 <Box sx={{textAlign:'center' ,marginTop:'8px'}}>
                     <Avatar sx={{ margin: 'auto',backgroundColor:'#007DFC' }}>
@@ -62,7 +79,7 @@ export default function CreateBudgetModel({closeModel}){
                 <Button
                     variant="contained"
                     fullWidth sx={{marginBottom:'14px',marginTop:'22px'}}
-                    onClick={createBudget}
+                    onClick={handelSubmit}
                     disabled={!(budgetName&&budgetAmount)}
                 >
                     Create Budget

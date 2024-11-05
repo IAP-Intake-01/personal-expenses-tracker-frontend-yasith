@@ -4,11 +4,20 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {useState} from "react";
 import Button from "@mui/material/Button";
 
-export default function SignUp({closeModel}){
+export default function SignUp({closeModel,onSubmit}){
     const [userName, setName] = useState('');
     const [userEmail, setEmail] = useState('');
     const [userPassword, setPassword] = useState('');
 
+    const handleSubmit=()=>{
+        const newSignUp={
+            name:userName,
+            email:userEmail,
+            password:userPassword
+        };
+        onSubmit(newSignUp);
+        closeModel();
+    }
     return(
         <div className={'signUp'}
              onClick={(e)=>{
@@ -16,7 +25,6 @@ export default function SignUp({closeModel}){
                      closeModel();
                  }
              }}
-
         >
             <Paper  elevation={10} sx={{ padding: 2, width: '320px', height:'65vh', margin: '100px auto '}}>
                 <Box sx={{textAlign:'center'}}>
@@ -54,8 +62,9 @@ export default function SignUp({closeModel}){
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <FormControlLabel control={<Checkbox defaultChecked />} label="I accept the terms and conditions" />
-                <Button  variant="contained" fullWidth sx={{marginTop:'18px',backgroundColor:'#007DFC'}}>Sign Up</Button>
+                <Button onClick={handleSubmit} variant="contained" fullWidth sx={{marginTop:'18px',backgroundColor:'#007DFC'}} >Sign Up</Button>
             </Paper>
         </div>
     )
 }
+

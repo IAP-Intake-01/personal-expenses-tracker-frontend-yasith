@@ -22,7 +22,10 @@ import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
 import HealthAndSafetyOutlinedIcon from '@mui/icons-material/HealthAndSafetyOutlined';
 import logo from '../../assets/logo.svg'
 import  routes from "../../routes/routes.jsx"
-import {Navigate, Route, Routes,Link} from "react-router-dom";
+import {Navigate, Route, Routes, Link, useNavigate} from "react-router-dom";
+import Button from "@mui/material/Button";
+import {FinancialContext} from "../Context/ExpencesTrackerContext.jsx";
+import {useContext} from "react";
 const drawerWidth = 240;
 
 
@@ -30,6 +33,8 @@ function Main(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [isClosing, setIsClosing] = React.useState(false);
+    const navigate = useNavigate();
+    const { logOut } = useContext(FinancialContext); // Get the logOut function from context
 
     const handleDrawerClose = () => {
         setIsClosing(true);
@@ -45,6 +50,7 @@ function Main(props) {
             setMobileOpen(!mobileOpen);
         }
     };
+
 
     const drawer = (
         <div>
@@ -74,6 +80,11 @@ function Main(props) {
         rout.map((val)=>
             <Route path={val.path} key={val.key}  element={val.element} />
         )
+
+    const handleLogOut = () => {
+        logOut();
+    };
+
     // Remove this const when copying and pasting into your project.
     const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -98,7 +109,7 @@ function Main(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h16" noWrap component="div" sx={{height:'85px'}}>
-
+                        <Button sx={{marginLeft:4,color:'black',width:'auto',backgroundColor:'error'}} variant="contained" fullWidth onClick={()=>handleLogOut()}>LOGOUT</Button>
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -142,7 +153,7 @@ function Main(props) {
                 <Toolbar />
                 <Routes>
                     {getRoutes(routes)}
-                    <Route path={'*'} element={<Navigate to={'/budgets'}/>}/>
+                    {/*<Route path={'*'} element={<Navigate to={'/budgets'}/>}/>*/}
                 </Routes>
             </Box>
         </Box>

@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')).render(
     <ExpencesTrackerContext>
         <BrowserRouter>
             <App />
-        </BrowserRouter>,
+        </BrowserRouter>
     </ExpencesTrackerContext>
 
 )
