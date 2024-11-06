@@ -9,26 +9,27 @@ const routes=[
     {
         name: 'Dashboard',
         key:'dashboard',
-        path:'/dashboard',
+        path:'main/dashboard',
         element: <DashboardPage/>
     },
     {
         name: 'Budgets',
         key:'budgets',
-        path:'/budgets',
+        path:'main/budgets',
         element: <BudgetsPage/>
     },
     {
         name: 'Expenses',
         key:'expenses',
-        path:'/expenses',
+        path:'main/expenses',
         element: <ExpensesPage/>
     },
     {
         name: 'Upgrade',
         key:'upgrade',
-        path:'/upgrade',
+        path:'main/upgrade',
         element: <UpgradePage/>
-    }
+    },
+
 ]
 export  default routes

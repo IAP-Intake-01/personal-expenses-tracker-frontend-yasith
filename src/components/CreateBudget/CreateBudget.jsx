@@ -5,7 +5,6 @@ export default function CreateBudget(){
 
     const[modelOpen,setModelOpen]=useState(false);
 
-    // Function to open the dialog
     const openDialog = () => {
         setModelOpen(true);
     };

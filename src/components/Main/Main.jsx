@@ -26,6 +26,7 @@ import {Navigate, Route, Routes, Link, useNavigate} from "react-router-dom";
 import Button from "@mui/material/Button";
 import {FinancialContext} from "../Context/ExpencesTrackerContext.jsx";
 import {useContext} from "react";
+import BudgetDetail from "../BudgetDetail/BudgetDetail.jsx";
 const drawerWidth = 240;
 
 
@@ -153,6 +154,7 @@ function Main(props) {
                 <Toolbar />
                 <Routes>
                     {getRoutes(routes)}
+                    <Route path="budget/:id" element={<BudgetDetail/>} />
                     {/*<Route path={'*'} element={<Navigate to={'/budgets'}/>}/>*/}
                 </Routes>
             </Box>
