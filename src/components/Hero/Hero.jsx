@@ -1,5 +1,4 @@
 import './Hero.css'
-import hero from '../../assets/hero.jpg'
 export default function Hero(){
     return(
         <section className="bg-gray-50 flex flex-col items-center">
@@ -23,7 +22,6 @@ export default function Hero(){
                     </div>
                 </div>
             </div>
-            <img src={hero} alt={''} style={{height:550,width:1000}} className={'-mt-9 rounded-xl border-2'}/>
         </section>
     )
 }
