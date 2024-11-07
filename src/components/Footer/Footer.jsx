@@ -12,34 +12,7 @@ export default function Footer(){
                     <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
                         Easily manage your budget, track expenses, and stay on top of your finances. Your journey to smarter spending starts here!
                     </p>
-
-                    <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
-                        <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> About </a>
-                        </li>
-
-                        <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Careers </a>
-                        </li>
-
-                        <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> History </a>
-                        </li>
-
-                        <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Services </a>
-                        </li>
-
-                        <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Projects </a>
-                        </li>
-
-                        <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Blog </a>
-                        </li>
-                    </ul>
-
-                    <ul className="mt-12 flex justify-center gap-6 md:gap-8">
+                    <ul className="mt-6 flex justify-center gap-6 md:gap-8">
                         <li>
                             <a
                                 href="#"

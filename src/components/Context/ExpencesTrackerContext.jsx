@@ -1,5 +1,6 @@
 import {createContext, useEffect, useState} from "react";
 import instance from "../../services/AxiosOrder.jsx";
+import Swal from "sweetalert2";
 export const  FinancialContext=createContext(null);
 
 const ExpencesTrackerContext=({children})=>{
@@ -17,9 +18,9 @@ const ExpencesTrackerContext=({children})=>{
         })
             .then(res=>{
                 if(res.data.status==="Success"){
-                    alert('success')
+                    alert('Account Created Successfully!')
                 }else{
-                    alert('Error')
+                    alert('Account Creation Failed!')
                 }
             })
             .catch(error=>{
@@ -41,10 +42,9 @@ const ExpencesTrackerContext=({children})=>{
                     localStorage.setItem('userEmail', res.data.user.email);
                     console.log(token)
                     window.location.reload();
-                    alert('Success')
-
+                    alert('Successfully Signed In!')
                 }else{
-                    alert('Password not matches')
+                    alert('Signed In failed!')
                 }
             })
             .catch(err=>{
@@ -63,9 +63,11 @@ const ExpencesTrackerContext=({children})=>{
         })
             .then(res=>{
                 if(res.data.status==="Success"){
-                    alert('Success')
+                    alert('Budget has been created successfully')
+
                 }else{
-                    alert('Error')
+                    alert('Budget Creation Fail!')
+
                 }
             })
             .catch(err=>{
@@ -101,7 +103,7 @@ const ExpencesTrackerContext=({children})=>{
                 console.log(res.data)
             })
             .catch(err=>{
-                alert("Failed to fetch expense list");
+                alert('error')
             })
     }
     const logOut = () => {
@@ -126,9 +128,10 @@ const ExpencesTrackerContext=({children})=>{
                 setExpenses(res.data.expense)
                 console.log(res.data.expense)
                 window.location.reload();
+                alert('Expense has been created successfully')
             })
             .catch(err=>{
-                alert("Failed to fetch expenses");
+                alert('Budget creation fail')
             })
     }
 
@@ -150,6 +153,7 @@ const ExpencesTrackerContext=({children})=>{
                     prevExpenses.filter((expense) => expense.id !== id)
                 );
                 window.location.reload();
+                alert('Expense deleted successfully')
             })
             .catch(err=>{
                 alert('Error')
