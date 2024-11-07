@@ -16,6 +16,13 @@ export default function SignIn({onSubmit,closeModel}){
         closeModel();
     }
     return(
+        <div className={'signIn'}
+             onClick={(e)=>{
+                 if (e.target.classList.contains("signIn")) {
+                     closeModel();
+                 }
+             }}
+        >
         <div className={'signIn'}>
             <Paper  elevation={10} sx={{ padding: 2, width: '320px', height:'65vh', margin: '100px auto '}}>
                 <Box sx={{textAlign:'center'}}>

@@ -13,7 +13,6 @@ export default function Navbar(){
 
     const {signIn,signUp}=useContext(FinancialContext);
 
-    axios.defaults.withCredentials=true;
     const handleSignInClick = () => {
         setOpenSignIn(true);
         setOpenSignUp(false);
@@ -43,3 +42,7 @@ export default function Navbar(){
         </div>
     )
 }
+
+
+
+

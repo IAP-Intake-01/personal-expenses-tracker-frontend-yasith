@@ -19,6 +19,13 @@ export default function SignUp({closeModel,onSubmit}){
         closeModel();
     }
     return(
+        <div className={'signUp'}
+             onClick={(e)=>{
+                 if (e.target.classList.contains("signUp")) {
+                     closeModel();
+                 }
+             }}
+        >
         <div className={'signUp'}>
             <Paper  elevation={10} sx={{ padding: 2, width: '320px', height:'65vh', margin: '100px auto '}}>
                 <Box sx={{textAlign:'center'}}>
@@ -61,3 +68,4 @@ export default function SignUp({closeModel,onSubmit}){
         </div>
     )
 }
+
