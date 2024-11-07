@@ -3,10 +3,10 @@ import instance from "../../services/AxiosOrder.jsx";
 export const  FinancialContext=createContext(null);
 
 const ExpencesTrackerContext=({children})=>{
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({});
     const [budgets, setBudgets] = useState([]);
     const [expenses, setExpenses] = useState([]);
-
+    const[allExpense,setAllExpense]=useState([])
 
     //SignUp
     const signUp=(newSignUp)=>{
@@ -40,7 +40,6 @@ const ExpencesTrackerContext=({children})=>{
                     localStorage.setItem('login',token)
                     localStorage.setItem('userEmail', res.data.user.email);
                     console.log(token)
-                    console.log(res.data.user.email)
                     window.location.reload();
                     alert('Success')
 
@@ -76,6 +75,7 @@ const ExpencesTrackerContext=({children})=>{
 
     useEffect(() => {
         getBudgetList();
+        getAllExpenseList();
     }, []);
 
     const getBudgetList=()=>{
@@ -89,6 +89,19 @@ const ExpencesTrackerContext=({children})=>{
             })
             .catch(err=>{
                 alert("Failed to fetch budget list");
+            })
+    }
+    const getAllExpenseList=()=>{
+        const userEmail=localStorage.getItem('userEmail');
+        instance.get('get-all-expense-list',{
+            params: { email: userEmail }  // Send email as query parameter
+        })
+            .then(res=>{
+                setAllExpense(res.data.allExpenseList);
+                console.log(res.data)
+            })
+            .catch(err=>{
+                alert("Failed to fetch expense list");
             })
     }
     const logOut = () => {
@@ -194,7 +207,9 @@ const ExpencesTrackerContext=({children})=>{
         expenses,
         deleteExpense,
         deleteBudget,
-        editBudget
+        editBudget,
+        allExpense,
+        user
     }
     return (
         <FinancialContext.Provider value={contextValue}>

@@ -24,12 +24,6 @@ const routes=[
         path:'main/expenses',
         element: <ExpensesPage/>
     },
-    {
-        name: 'Upgrade',
-        key:'upgrade',
-        path:'main/upgrade',
-        element: <UpgradePage/>
-    },
 
 ]
 export  default routes

@@ -66,7 +66,7 @@ function Main(props) {
                         <ListItem key={val.key} disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    {index % 4 === 0 ? <DashboardIcon /> : index % 4 === 1 ? <AddCardOutlinedIcon /> : index % 4 === 2 ? <ListAltOutlinedIcon /> : <HealthAndSafetyOutlinedIcon />}
+                                    {index % 3 === 0 ? <DashboardIcon /> : index % 3 === 1 ? <AddCardOutlinedIcon /> :  <ListAltOutlinedIcon /> }
                                 </ListItemIcon>
                                 <ListItemText primary={val.name} />
                             </ListItemButton>
@@ -97,11 +97,13 @@ function Main(props) {
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
+                    boxShadow:'none',
+                    height:'85px'
                 }}
             >
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        color='inherit'
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
@@ -109,9 +111,10 @@ function Main(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h16" noWrap component="div" sx={{height:'85px'}}>
-                        <Button sx={{marginLeft:4,color:'black',width:'auto',backgroundColor:'error'}} variant="contained" fullWidth onClick={()=>handleLogOut()}>LOGOUT</Button>
-                    </Typography>
+                    <Box sx={{ ml: 'auto' ,marginTop:'20px'}}>
+                        <Button sx={{marginLeft:4,color:'white',width:'auto',backgroundColor:'red'}} variant="contained" fullWidth onClick={()=>handleLogOut()}>LOGOUT</Button>
+                    </Box>
+
                 </Toolbar>
             </AppBar>
             <Box
@@ -155,7 +158,7 @@ function Main(props) {
                 <Routes>
                     {getRoutes(routes)}
                     <Route path="budget/:id" element={<BudgetDetail/>} />
-                    {/*<Route path={'*'} element={<Navigate to={'/budgets'}/>}/>*/}
+                    <Route path="*" element={<Navigate to="main/dashboard" />} />
                 </Routes>
             </Box>
         </Box>
