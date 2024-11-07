@@ -1,9 +1,6 @@
 import './App.css'
-import Navbar from "../components/Navbar/Navbar.jsx";
 import Main from "../components/Main/Main.jsx";
-import SignUpPage from "../pages/SignUpPage.jsx";
 import {Navigate, Route, Routes} from "react-router-dom";
-import SignInPage from "../pages/SignInPage.jsx";
 import {useEffect, useState} from "react";
 import HomePage from "../pages/HomePage.jsx";
 
